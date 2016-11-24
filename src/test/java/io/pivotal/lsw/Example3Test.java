@@ -53,7 +53,6 @@ public class Example3Test {
     }
 
     class Developer {
-
         Set<String> languages;
 
         Developer(String... languages) {
