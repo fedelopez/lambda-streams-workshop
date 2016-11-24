@@ -52,7 +52,7 @@ public class Example1Test {
     @Test
     public void compareLambda() {
         List<Pet> pets = Arrays.asList(new Pet("Daisy"), new Pet("Max"), new Pet("Lucy"), new Pet("Buddy"));
-        Comparator<Pet> comparator = (p1, p2) -> p1.name.compareTo(p2.name);
+        Comparator<Pet> comparator = Comparator.comparing(p -> p.name);
         pets.sort(comparator);
         System.out.println("pets = " + pets);
     }
