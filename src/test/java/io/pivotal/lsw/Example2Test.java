@@ -3,14 +3,10 @@ package io.pivotal.lsw;
 import io.pivotal.lsw.Example2.StringValidator;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
+import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
-
-import static java.math.BigDecimal.ROUND_UNNECESSARY;
-import static java.math.RoundingMode.*;
 
 public class Example2Test {
 
@@ -43,15 +39,16 @@ public class Example2Test {
     }
 
     @Test
-    public void function() {
-        Function<BigDecimal, BigDecimal> ausToEur = x -> x.multiply(new BigDecimal("0.698032")).setScale(2, HALF_UP);
-        System.out.println("ausToEur = " + ausToEur.apply(new BigDecimal(56)));
+    public void biFunction() {
+        BiFunction<Double, Double, Double> pythagoras = (x, y) -> Math.sqrt(x * x + y * y);
+        Double result = pythagoras.apply(3.0, 4.0);
+        System.out.println("result = " + result);
     }
 
     @Test
     public void binaryOperator() throws Exception {
-        BinaryOperator<Integer> binaryOperator = (n1, n2) -> n1 + n2;
-        Integer sum = binaryOperator.apply(1, 2);
-        System.out.println("apply = " + sum);
+        BinaryOperator<Double> binaryOperator = (x, y) -> Math.sqrt(x * x + y * y);
+        Double result = binaryOperator.apply(3.0, 4.0);
+        System.out.println("result = " + result);
     }
 }
