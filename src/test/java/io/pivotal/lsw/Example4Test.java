@@ -4,7 +4,6 @@ import org.junit.Test;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Example4Test {
@@ -16,7 +15,7 @@ public class Example4Test {
         long res = stream
                 .map(String::toLowerCase)
                 .filter(line -> line.contains("have"))
-                .collect(Collectors.counting());
-        System.out.println("res = " + res);
+                .count();
+        System.out.println("occurrences = " + res);
     }
 }

@@ -12,7 +12,7 @@ class Example4 {
 
     public static void main(String[] args) throws Exception {
         Book faker = new Faker().book();
-        Path path = Paths.get(Example4.class.getResource("/a.txt").toURI());
+        Path path = Paths.get(Example4.class.getResource("/books.txt").toURI());
         for (int i = 0; i < 10_000_000; i++) {
             String fact = faker.title() + "\n";
             Files.write(path, fact.getBytes(), StandardOpenOption.APPEND);
