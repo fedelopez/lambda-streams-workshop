@@ -1,6 +1,5 @@
 package io.pivotal.lsw;
 
-import io.pivotal.lsw.Example2.StringValidator;
 import org.junit.Test;
 
 import java.util.function.BiFunction;
@@ -8,7 +7,11 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class Example2Test {
+public class _00FunctionalInterfacesTest {
+
+    interface StringValidator {
+        boolean check(String value);
+    }
 
     @Test
     public void isUpperCase() {

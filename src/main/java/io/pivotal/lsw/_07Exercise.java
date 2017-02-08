@@ -1,33 +1,27 @@
 package io.pivotal.lsw;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-class Exercise {
+class _07Exercise {
 
+    @Data
+    @AllArgsConstructor
     static class Album {
         String name;
         List<Track> tracks;
-
-        Album(String name, List<Track> tracks) {
-            this.name = name;
-            this.tracks = tracks;
-        }
-
-        public String toString() {
-            return name;
-        }
     }
 
+    @Data
+    @AllArgsConstructor
     static class Track {
         int rating;
-
-        Track(int rating) {
-            this.rating = rating;
-        }
     }
 
     static List<Album> favourites(List<Album> albums) {
@@ -55,7 +49,7 @@ class Exercise {
     static List<Album> favouritesUsingStreams(List<Album> albums) {
         return albums
                 .stream()
-                .filter(a -> a.tracks.stream().anyMatch(t -> t.rating >= 4))
+                .filter(album -> album.tracks.stream().anyMatch(t -> t.rating >= 4))
                 .sorted((a1, a2) -> a1.name.compareTo(a2.name))
                 .collect(Collectors.toList());
     }

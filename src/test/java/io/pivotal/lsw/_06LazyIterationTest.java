@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class Example4Test {
+public class _06LazyIterationTest {
 
     @Test
     public void lazyIteration() throws Exception {
